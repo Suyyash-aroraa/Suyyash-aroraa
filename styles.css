@@ -194,8 +194,7 @@ body {
 .about-profile-image {
     width: 250px;
     height: auto;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(108, 99, 255, 0.2);
+   
 }
 
 /* Experience Section */
@@ -240,7 +239,7 @@ body {
 }
 
 .work-illustration {
-    width: 200px;
+    width: 300px;
     height: auto;
 }
 
@@ -542,7 +541,7 @@ body {
     }
 
     .work-illustration {
-        width: 150px;
+        width: 250px;
     }
 
     .cta-buttons {
