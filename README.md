@@ -1,7 +1,7 @@
 # Hi there! 👋 I'm Suyyash Raj Arora
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00F7FF&center=true&vCenter=true&width=435&lines=Aspiring+Quant+Developer;Full+Stack+Web+Developer;Machine+Learning+Enthusiast;Cloud+Computing+Specialist" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00F7FF&center=true&vCenter=true&width=435&lines=Aspiring+Quant+Developer;Machine+Learning+Enthusiast;Cloud+Computing+Specialist" alt="Typing SVG" />
 </div>
 
 ---
