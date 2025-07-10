@@ -11,7 +11,7 @@
 Currently a **3rd-year B.Tech CSE student** at **VIT Bhopal** with specialization in **Cloud Computing**. I'm passionate about quantitative development, combining my strong foundation in web development with advanced mathematical concepts and machine learning. My journey spans from creating beautiful web applications to developing sophisticated trading algorithms and health-tech solutions.
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Suyyash-aroraa&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats" />
 </div>
 
 ---
