@@ -68,7 +68,10 @@ particlesJS('particles-js', {
 });
 
 // Typing Animation
-const typed = new Typed('.typing-text', {
+const typingText = document.querySelector('.typing-text');
+typingText.innerHTML = '<span></span>';
+
+const typed = new Typed('.typing-text span', {
     strings: [
         'Aspiring Quant Developer',
         'Full Stack Web Developer',

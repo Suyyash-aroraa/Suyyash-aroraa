@@ -109,10 +109,19 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.typed-cursor{
+    color: white !important;
+}
+
 .typing-text {
-    font-size: 1.5rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin: 1rem 0;
+    display: inline-block;
+}
+
+.typing-text span {
+    display: inline;
 }
 
 .hero-description {
