@@ -572,3 +572,16 @@ body {
     margin: 5px 0;
     transition: all 0.3s ease;
 }
+
+/* Test AutoMail Description */
+.test-automail {
+    text-align: center;
+    color: var(--text-secondary);
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.project-btn{
+    position: relative;
+    top: 2rem;
+}
