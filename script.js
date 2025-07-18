@@ -133,6 +133,8 @@ hamburger.addEventListener('click', () => {
 });
 
 // Form Submission
+const API_URL = 'https://f95e6dfe0fb2.ngrok-free.app';
+
 const contactForm = document.querySelector('.contact-form');
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -144,12 +146,18 @@ contactForm.addEventListener('submit', async (e) => {
     submitBtn.disabled = true;
 
     try {
-        const response = await fetch(contactForm.action, {
+        const formData = {
+            name: contactForm.querySelector('[name="name"]').value,
+            email: contactForm.querySelector('[name="email"]').value,
+            message: contactForm.querySelector('[name="message"]').value
+        };
+
+        const response = await fetch(`${API_URL}/submit`, {
             method: 'POST',
-            body: new FormData(contactForm),
             headers: {
-                'Accept': 'application/json'
-            }
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
         });
 
         if (response.ok) {
