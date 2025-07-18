@@ -133,7 +133,7 @@ hamburger.addEventListener('click', () => {
 });
 
 // Form Submission
-const API_URL = 'https://44c9bd2aefc2.ngrok-free.app;
+const API_URL = 'https://44c9bd2aefc2.ngrok-free.app';
 
 const contactForm = document.querySelector('.contact-form');
 contactForm.addEventListener('submit', async (e) => {
