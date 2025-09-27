@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Schedule</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .schedule-grid {
+            padding: 30px;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid;
+        }
+
+        .schedule-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .schedule-item.ala {
+            border-left-color: #ff6b6b;
+        }
+
+        .schedule-item.pla {
+            border-left-color: #4ecdc4;
+        }
+
+        .schedule-item.cca {
+            border-left-color: #45b7d1;
+        }
+
+        .schedule-item.toc {
+            border-left-color: #96ceb4;
+        }
+
+        .schedule-item.aws {
+            border-left-color: #feca57;
+        }
+
+        .schedule-item.cpp {
+            border-left-color: #ff9ff3;
+        }
+
+        .date-info {
+            flex: 1;
+        }
+
+        .date {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .subject {
+            font-size: 0.9em;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subject-tag {
+            background: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .exam-info {
+            text-align: right;
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .exam-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .add-to-calendar {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-calendar:hover {
+            background: #218838;
+            transform: scale(1.05);
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .schedule-item {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .exam-info {
+                margin-left: 0;
+                margin-top: 15px;
+                text-align: center;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                margin: 10px;
+            }
+
+            body {
+                padding: 10px;
+            }
+
+            .legend {
+                justify-content: center;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Study Schedule</h1>
+            <p>Your path to success starts here</p>
+        </div>
+        
+        <div class="schedule-grid">
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalDays">19</div>
+                    <div class="stat-label">Study Days</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="examDays">3</div>
+                    <div class="stat-label">Exam Days</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="subjects">6</div>
+                    <div class="stat-label">Subjects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="daysLeft">-</div>
+                    <div class="stat-label">Days Left</div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div id="scheduleItems"></div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ff6b6b;"></div>
+                    <span>ALA - Advanced Linear Algebra</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #4ecdc4;"></div>
+                    <span>PLA - Programming Language Analysis</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #45b7d1;"></div>
+                    <span>CCA - Computer Communication & Architecture</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #96ceb4;"></div>
+                    <span>TOC - Theory of Computation</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #feca57;"></div>
+                    <span>AWS - Amazon Web Services</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ff9ff3;"></div>
+                    <span>CPP - C++ Programming</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scheduleData = [
+            { date: '2025-09-28', subject: 'ALA', exam: null },
+            { date: '2025-09-29', subject: 'PLA', exam: null },
+            { date: '2025-09-30', subject: 'PLA', exam: null },
+            { date: '2025-10-01', subject: 'CCA', exam: null },
+            { date: '2025-10-02', subject: 'CCA', exam: null },
+            { date: '2025-10-03', subject: 'PLA + CCA rev', exam: null },
+            { date: '2025-10-04', subject: 'TOC', exam: null },
+            { date: '2025-10-05', subject: 'TOC', exam: null },
+            { date: '2025-10-06', subject: 'TOC', exam: null },
+            { date: '2025-10-07', subject: 'CCA', exam: 'TOC' },
+            { date: '2025-10-08', subject: 'PLA', exam: 'CCA' },
+            { date: '2025-10-09', subject: 'ALA', exam: 'PLA' },
+            { date: '2025-10-10', subject: 'ALA', exam: null },
+            { date: '2025-10-11', subject: 'AWS', exam: null },
+            { date: '2025-10-12', subject: 'AWS', exam: null },
+            { date: '2025-10-13', subject: 'CPP', exam: 'AWS' },
+            { date: '2025-10-14', subject: 'CPP', exam: null },
+            { date: '2025-10-15', subject: 'ALA', exam: 'CPP' },
+            { date: '2025-10-16', subject: null, exam: 'ALA' }
+        ];
+
+        const subjectColors = {
+            'ALA': 'ala',
+            'PLA': 'pla',
+            'CCA': 'cca',
+            'TOC': 'toc',
+            'AWS': 'aws',
+            'CPP': 'cpp'
+        };
+
+        const subjectNames = {
+            'ALA': 'Advanced Linear Algebra',
+            'PLA': 'Programming Language Analysis',
+            'CCA': 'Computer Communication & Architecture',
+            'TOC': 'Theory of Computation',
+            'AWS': 'Amazon Web Services',
+            'CPP': 'C++ Programming'
+        };
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            const options = { 
+                weekday: 'short', 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+            };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        function getDaysDifference(dateStr) {
+            const today = new Date();
+            const targetDate = new Date(dateStr);
+            const diffTime = targetDate - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays;
+        }
+
+        function createGoogleCalendarUrl(date, subject, exam) {
+            const startDate = new Date(date);
+            const endDate = new Date(date);
+            endDate.setHours(23, 59, 59);
+
+            let title, description;
+            
+            if (exam) {
+                title = `${subjectNames[exam]} Exam`;
+                description = `Exam for ${subjectNames[exam]}`;
+                if (subject) {
+                    description += `\nStudy: ${subjectNames[subject] || subject}`;
+                }
+            } else if (subject) {
+                title = `Study: ${subjectNames[subject] || subject}`;
+                description = `Study session for ${subjectNames[subject] || subject}`;
+            }
+
+            const startDateStr = startDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+            const endDateStr = endDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+
+            const params = new URLSearchParams({
+                action: 'TEMPLATE',
+                text: title,
+                dates: `${startDateStr}/${endDateStr}`,
+                details: description,
+                location: 'Study Location'
+            });
+
+            return `https://calendar.google.com/calendar/render?${params.toString()}`;
+        }
+
+        function renderSchedule() {
+            const container = document.getElementById('scheduleItems');
+            const today = new Date().toISOString().split('T')[0];
+            
+            container.innerHTML = '';
+
+            scheduleData.forEach(item => {
+                const scheduleItem = document.createElement('div');
+                const primarySubject = item.subject ? item.subject.split(' + ')[0] : (item.exam || 'exam');
+                scheduleItem.className = `schedule-item ${subjectColors[primarySubject] || 'exam'}`;
+                
+                const daysDiff = getDaysDifference(item.date);
+                const isToday = item.date === today;
+                const isPast = daysDiff < 0;
+                
+                if (isPast) {
+                    scheduleItem.style.opacity = '0.6';
+                }
+                
+                if (isToday) {
+                    scheduleItem.style.border = '2px solid #ff6b6b';
+                    scheduleItem.style.background = '#fff8f8';
+                }
+
+                let studyContent = '';
+                if (item.subject) {
+                    const subjects = item.subject.split(' + ');
+                    studyContent = subjects.map(subj => 
+                        `<span class="subject-tag">${subj.replace(' rev', ' Review')}</span>`
+                    ).join('');
+                }
+
+                scheduleItem.innerHTML = `
+                    <div class="date-info">
+                        <div class="date">${formatDate(item.date)} ${isToday ? '🎯 Today' : daysDiff === 1 ? '📅 Tomorrow' : ''}</div>
+                        <div class="subject">
+                            ${studyContent}
+                            ${item.subject ? '' : '<span class="subject-tag">Rest Day</span>'}
+                        </div>
+                    </div>
+                    <div class="exam-info">
+                        ${item.exam ? `<div class="exam-badge">📝 ${subjectNames[item.exam]} Exam</div>` : ''}
+                        <button class="add-to-calendar" onclick="addToCalendar('${item.date}', '${item.subject || ''}', '${item.exam || ''}')">
+                            📅 Add to Calendar
+                        </button>
+                    </div>
+                `;
+
+                container.appendChild(scheduleItem);
+            });
+        }
+
+        function addToCalendar(date, subject, exam) {
+            const url = createGoogleCalendarUrl(date, subject, exam);
+            window.open(url, '_blank');
+        }
+
+        function updateProgress() {
+            const today = new Date();
+            const startDate = new Date(scheduleData[0].date);
+            const endDate = new Date(scheduleData[scheduleData.length - 1].date);
+            
+            const totalDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+            const daysPassed = Math.max(0, Math.ceil((today - startDate) / (1000 * 60 * 60 * 24)));
+            
+            const progress = Math.min(100, (daysPassed / totalDays) * 100);
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            
+            const daysLeft = Math.max(0, Math.ceil((endDate - today) / (1000 * 60 * 60 * 24)));
+            document.getElementById('daysLeft').textContent = daysLeft;
+        }
+
+        // Initialize the page
+        renderSchedule();
+        updateProgress();
+
+        // Add some animations
+        setTimeout(() => {
+            const items = document.querySelectorAll('.schedule-item');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    item.style.transition = 'all 0.5s ease';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 50);
+            });
+        }, 100);
+    </script>
+</body>
+</html>
