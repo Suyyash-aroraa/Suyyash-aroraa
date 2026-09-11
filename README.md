@@ -1,162 +1,88 @@
-# Hi there! 👋 I'm Suyyash Raj Arora
-
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00F7FF&center=true&vCenter=true&width=435&lines=Aspiring+Quant+Developer;Machine+Learning+Enthusiast;Cloud+Computing+Specialist" alt="Typing SVG" />
-</div>
 
----
+# Hey, I'm Suyyash 👋
 
-## 🚀 About Me
+### Python developer who learns by building.
 
-Currently a **3rd-year B.Tech CSE student** at **VIT Bhopal** with specialization in **Cloud Computing**. I'm passionate about quantitative development, combining my strong foundation in web development with advanced mathematical concepts and machine learning. My journey spans from creating beautiful web applications to developing sophisticated trading algorithms and health-tech solutions.
+Self-taught into Flask, Django, and full-stack web dev — about a year of freelance client work behind me, and I'd rather build something wrong first and fix it than never see it break at all.
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Suyyash-aroraa&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats" />
-</div>
-
----
-
-## 💼 Professional Experience
-
-### 🍽️ **Web & Software Developer** | *Kwality Restaurant Gwalior*
-- **🌟 Project Highlight**: Developed a gorgeous restaurant website ([kwality.co.in](http://kwality.co.in))
-- **🤖 Innovation**: Created a virtual waitlist system with WhatsApp integration
-- **🧠 ML Integration**: Implemented ML-based estimated waiting time prediction
-- **📱 Full-Stack**: End-to-end development from design to deployment
-
----
-
-## 🛠️ Tech Stack
-
-### Programming Languages
-<div align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++" />
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
-</div>
-
-### Frameworks & Libraries
-<div align="center">
-  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
-  <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas" />
-  <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy" />
-  <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-learn" />
-  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow" />
-</div>
-
-### Cloud & Database
-<div align="center">
-  <img src="https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS" />
-  <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-</div>
-
-### Specializations
-<div align="center">
-  <img src="https://img.shields.io/badge/Machine_Learning-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="ML" />
-  <img src="https://img.shields.io/badge/Quantitative_Analysis-4CAF50?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="Quant" />
-  <img src="https://img.shields.io/badge/Linear_Algebra-9C27B0?style=for-the-badge&logo=wolframmathematica&logoColor=white" alt="Linear Algebra" />
-  <img src="https://img.shields.io/badge/NLP-FF5722?style=for-the-badge&logo=spacy&logoColor=white" alt="NLP" />
-</div>
-
----
-
-## 🎯 Featured Projects
-
-### 🏥 **HealthBot AI** - ML & NLP Health Assistant
-- **🧠 Technology**: Ensemble ML approach with NLP processing
-- **🎯 Purpose**: Disease identification based on user symptoms
-- **⚡ Features**: Advanced symptom analysis and health recommendations
-- **🔧 Stack**: Python, scikit-learn, TensorFlow, NLP libraries
-
-### 📈 **Quantitative Trading Agent** *(In Progress)*
-- **🤖 AI-Powered**: ML and quantitative algorithms for trading signals
-- **📊 Data**: Historic data analysis with yfinance for live market data
-- **🎯 Focus**: Forex trend prediction and automated buy/sell signals
-- **📈 Goal**: Building sophisticated trading strategies with mathematical precision
-
----
-
-## 🏆 Certifications & Achievements
-
-<div align="center">
-  
-| 🎓 **Course** | 🏛️ **Institution** | 📅 **Platform** |
-|---------------|---------------------|------------------|
-| **Supervised Machine Learning** | DeepLearning.AI | Coursera |
-| **Python Essentials** | Vityarthi | Vityarthi |
-| **Frontend Development** | Meta | Coursera |
-| **Introduction to Cloud Computing** | IBM | Coursera |
-| **Python for Everybody** | University of Michigan | Coursera |
-
-</div>
-
-### 🎭 **Model United Nations (MUN)**
-- Active participant in Model UN conferences
-- Developed strong public speaking and negotiation skills
-
----
-
-## 🎓 Education
-
-<div align="center">
-  <img src="https://img.shields.io/badge/VIT_Bhopal-B.Tech_CSE-blue?style=for-the-badge&logo=graduation-cap&logoColor=white" alt="Education" />
-  <img src="https://img.shields.io/badge/Specialization-Cloud_Computing-green?style=for-the-badge&logo=cloud&logoColor=white" alt="Specialization" />
-  <img src="https://img.shields.io/badge/Expected_Graduation-2027-orange?style=for-the-badge&logo=calendar&logoColor=white" alt="Graduation" />
-</div>
-
-**Vellore Institute of Technology, Bhopal**  
-*Bachelor of Technology in Computer Science & Engineering*  
-*Specialization: Cloud Computing*  
-*Expected Graduation: 2027*
-
----
-
-## 🌟 Beyond Code
-
-When I'm not coding, you'll find me:
-- 📚 **Reading novels** - Exploring different worlds through literature
-- 🎤 **Public speaking** - Honing communication skills through MUN and presentations  
-- 🏃‍♂️ **Early morning jogs** - Starting the day with energy and focus
-- 🏛️ **Model UN** - Engaging in diplomatic simulations and global affairs
-
----
-
-## 📊 GitHub Analytics
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_GITHUB_USERNAME&theme=radical&hide_border=true" alt="GitHub Streak" />
-</div>
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Suyyash-aroraa&layout=compact&theme=radical&hide_border=true" alt="Top Languages" />
-</div>
-
----
-
-## 🤝 Let's Connect!
-
-<div align="center">
-  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/suyyash-arora/)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/suyyash_arora)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://suyyash-aroraa.github.io/Suyyash-aroraa/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:suyyash@myyahoo.com)
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=2E86C1&center=true&vCenter=true&width=600&lines=Flask+%2B+Django+backend+dev;Building+in+public%2C+one+repo+at+a+time;Currently+shipping%3A+django-ecom" alt="Typing SVG" />
 
 </div>
 
 ---
 
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=Suyyash-aroraa&color=blueviolet&style=for-the-badge" alt="Profile Views" />
-</div>
+## 🛠️ Tech I actually use
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" alt="Footer" />
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+
 </div>
 
 ---
 
-### 💡 *"Combining quantitative rigor with creative problem-solving to build the future of finance and technology."*
+## 📌 Projects I'd actually point you to
+
+### 🛒 [django-ecom](https://github.com/Suyyash-aroraa/django-ecom) — Django E-Commerce Platform
+> Decoupled full-stack e-commerce build: Django REST Framework + React/TypeScript + PostgreSQL
+
+- 🧩 Variant-based product catalog (attributes, SKUs), faceted search & filtering
+- 💳 Self-built payment gateway **simulation** shaped like a real PSP — HMAC-signed webhooks, idempotent event handling, and an explicit order status state machine with a full audit trail, sitting behind a provider interface so a real gateway (Razorpay/Stripe) would be a drop-in adapter, not a rewrite
+- 🔐 JWT auth with role-based access (customer vs. admin) + a custom admin dashboard (Recharts) — not just Django's default admin
+- ✅ Pytest suite covering webhook signature verification, idempotency, concurrent stock-race handling, and permission boundaries
+
+> **Honesty note:** runs locally, not deployed. The payment gateway is a mock built to *behave* like a real one — no live Razorpay/Stripe keys anywhere in it.
+
+### 🍽️ [hestia-pos](https://github.com/Suyyash-aroraa/hestia-pos) — Restaurant POS System
+> Public, simplified version of a point-of-sale system built and delivered as paid freelance work
+
+- ⚙️ Flask backend, SQLAlchemy models, PostgreSQL — orders, inventory, and billing logic
+- 🎨 Alpine.js frontend
+
+> **Honesty note:** the client's version included live payment gateway integration for online orders; this public copy doesn't include that piece since it was tied to the client's specific setup.
+
+---
+
+## 🧾 The rest of the story
+
+About a year of freelance Python/Flask work for paying clients — the two projects above are drawn directly from that work, plus a CRM/ERP system built for an educational institution (student, staff, and admin workflows with role-based login) that isn't public since it belongs to that client.
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=Suyyash-aroraa&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Suyyash-aroraa&layout=compact&theme=tokyonight&hide_border=true" />
+</div>
+
+<div align="center">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Suyyash-aroraa&theme=tokyonight&hide_border=true" />
+</div>
+
+---
+
+## 📫 Let's talk
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/Email-suyyasha%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:suyyasha@gmail.com)
+
+**Open to freelance work and full-time roles** — Python/Flask/Django backend or full-stack development.
+
+*If something here doesn't match what I said in an interview, ask — I'd rather correct it than have it sit wrong.*
+
+</div>
