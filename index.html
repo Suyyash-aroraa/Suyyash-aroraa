@@ -1,260 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suyyash Raj Arora - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="./images/logo-removebg-preview.png" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suyyash Arora — Python & Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0A08;
+    --panel:#14120F;
+    --panel-2:#1A1712;
+    --ink:#F2ECE0;
+    --muted:#9C948A;
+    --gold:#C6A15B;
+    --gold-deep:#8C6D34;
+    --line:rgba(198,161,91,0.22);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(ellipse 1200px 600px at 50% -10%, rgba(198,161,91,0.08), transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--gold); color:#0B0A08; }
+
+  a{ color:var(--gold); text-decoration:none; }
+  a:hover{ color:var(--ink); }
+
+  .wrap{ max-width:880px; margin:0 auto; padding:0 28px; }
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(11,10,8,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:18px; padding-bottom:18px;
+  }
+  .nav-mark{
+    font-family:'Fraunces', serif; font-size:19px; font-weight:500;
+    letter-spacing:0.02em; color:var(--ink);
+  }
+  .nav-links{ display:flex; gap:32px; }
+  .nav-links a{
+    font-size:14px; color:var(--muted); font-weight:500;
+    transition:color 0.2s ease;
+  }
+  .nav-links a:hover{ color:var(--gold); }
+
+  /* HERO */
+  header.hero{ padding:120px 0 100px; }
+  .eyebrow{
+    font-size:15px; color:var(--muted); margin-bottom:22px;
+    max-width:36ch;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:clamp(48px, 8vw, 86px);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    position:relative;
+    display:inline-block;
+  }
+  h1 .underline{
+    position:relative;
+    display:inline-block;
+  }
+  h1 .underline::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:0.06em;
+    height:0.05em;
+    width:0;
+    background:linear-gradient(90deg, var(--gold-deep), var(--gold));
+    animation:drawline 1.1s 0.4s cubic-bezier(.65,0,.35,1) forwards;
+  }
+  @keyframes drawline{ to{ width:100%; } }
+
+  .tagline{
+    font-size:19px; color:var(--muted);
+    max-width:52ch; margin-top:26px;
+    font-weight:400;
+  }
+  .cta-row{ display:flex; gap:16px; margin-top:44px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px; font-size:14.5px; font-weight:500;
+    border-radius:2px; transition:all 0.25s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:var(--gold); color:#0B0A08;
+  }
+  .btn-primary:hover{ background:var(--ink); color:#0B0A08; }
+  .btn-ghost{
+    border-color:var(--line); color:var(--ink);
+  }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold); }
+
+  /* SECTION SHARED */
+  section{ padding:80px 0; }
+  .hr{ height:1px; background:var(--line); border:none; }
+  .section-title{
+    font-family:'Fraunces', serif; font-weight:400;
+    font-size:32px; color:var(--ink); margin-bottom:14px;
+  }
+  .section-lead{
+    color:var(--muted); max-width:58ch; font-size:16px; margin-bottom:48px;
+  }
+
+  /* ABOUT */
+  .about-text{ max-width:62ch; font-size:17px; color:#D9D2C4; }
+  .about-text p + p{ margin-top:18px; }
+
+  .stack{
+    display:flex; flex-wrap:wrap; gap:10px; margin-top:36px;
+  }
+  .chip{
+    font-size:13px; color:var(--muted);
+    border:1px solid var(--line); padding:7px 14px; border-radius:2px;
+  }
+
+  /* WORK */
+  .project{
+    padding:36px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .project:last-child{ border-bottom:none; }
+  .project-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    flex-wrap:wrap; gap:10px; margin-bottom:14px;
+  }
+  .project-title{
+    font-family:'Fraunces', serif; font-size:26px; font-weight:500; color:var(--ink);
+  }
+  .project-link{ font-size:14px; white-space:nowrap; }
+  .project-tags{ color:var(--gold); font-size:13.5px; margin-bottom:16px; letter-spacing:0.01em; }
+  .project-desc{ color:#C9C2B4; font-size:15.5px; max-width:66ch; }
+  .project-desc ul{ margin-top:12px; padding-left:20px; }
+  .project-desc li{ margin-bottom:8px; }
+  .honesty{
+    margin-top:16px; padding:14px 18px;
+    background:var(--panel); border-left:2px solid var(--gold-deep);
+    font-size:14px; color:var(--muted); border-radius:0 2px 2px 0;
+  }
+  .honesty strong{ color:var(--gold); font-weight:500; }
+
+  /* RESUME — native rendered dossier */
+  .dossier{
+    background:linear-gradient(180deg, var(--panel-2), var(--panel));
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:44px;
+    position:relative;
+    overflow:hidden;
+  }
+  .dossier::before{
+    content:'';
+    position:absolute; top:0; left:0; right:0; height:2px;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .dossier-head{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    margin-bottom:36px; flex-wrap:wrap; gap:18px;
+    border-bottom:1px solid var(--line); padding-bottom:28px;
+  }
+  .dossier-title{ font-family:'Fraunces', serif; font-size:26px; margin-bottom:6px; }
+  .dossier-sub{ font-size:14px; color:var(--muted); }
+  .dossier-actions{ display:flex; gap:12px; flex-shrink:0; }
+
+  .rblock{ margin-bottom:34px; }
+  .rblock:last-child{ margin-bottom:0; }
+  .rlabel{
+    font-family:'Fraunces', serif; font-size:13.5px; color:var(--gold);
+    letter-spacing:0.06em; margin-bottom:16px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .rlabel::after{ content:''; flex:1; height:1px; background:var(--line); }
+  .rsummary{ font-size:15.5px; color:#D9D2C4; max-width:64ch; }
+
+  .rskills{ display:flex; flex-wrap:wrap; gap:9px; }
+
+  .rentry{ margin-bottom:26px; }
+  .rentry:last-child{ margin-bottom:0; }
+  .rentry-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    flex-wrap:wrap; gap:8px; margin-bottom:3px;
+  }
+  .rentry-title{ font-family:'Fraunces', serif; font-size:18px; color:var(--ink); font-weight:500; }
+  .rentry-date{ font-size:13px; color:var(--muted); white-space:nowrap; }
+  .rentry-sub{ font-size:14px; color:var(--muted); font-style:italic; margin-bottom:10px; }
+  .rentry ul{ padding-left:19px; }
+  .rentry li{ font-size:14.5px; color:#C9C2B4; margin-bottom:7px; }
+  .rentry li strong{ color:var(--ink); font-weight:600; }
+
+  .redu-school{ font-family:'Fraunces', serif; font-size:17px; color:var(--ink); }
+  .redu-detail{ font-size:14px; color:var(--muted); margin-top:3px; }
+
+  /* CONTACT */
+  .contact-row{
+    display:flex; gap:40px; flex-wrap:wrap; margin-top:8px;
+  }
+  .contact-item .label{ font-size:13px; color:var(--muted); margin-bottom:6px; }
+  .contact-item .value{ font-family:'Fraunces', serif; font-size:20px; color:var(--ink); }
+  .contact-item a.value:hover{ color:var(--gold); }
+
+  footer{
+    padding:50px 0 70px;
+    color:var(--muted); font-size:13.5px;
+  }
+
+  @media (max-width:640px){
+    header.hero{ padding:80px 0 60px; }
+    .viewer-frame embed, .viewer-frame iframe{ height:420px; }
+    .dossier{ padding:22px; }
+    .nav-links{ gap:18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    h1 .underline::after{ animation:none; width:100%; }
+  }
+</style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    <nav class="navbar">
-        <div class="nav-content">
-            <div class="logo">
-                <img src="./images/logo-removebg-preview.png" alt="Logo" class="nav-logo">
-                <span>Suyyash</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-mark">Suyyash Arora</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#resume">Résumé</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Python & full-stack developer</div>
+    <h1><span class="underline">Suyyash Arora</span></h1>
+    <p class="tagline">I build backend systems and full-stack applications — Flask and Django, real payment architecture, and the occasional project that exists purely because I wanted to understand how something actually works.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#resume">View résumé</a>
+      <a class="btn btn-ghost" href="https://github.com/Suyyash-aroraa" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="mailto:suyyasha@gmail.com">Email me</a>
+    </div>
+  </div>
+</header>
+
+<hr class="hr">
+
+<section id="about">
+  <div class="wrap">
+    <h2 class="section-title">About</h2>
+    <div class="about-text">
+      <p>Most of what I know, I learned by shipping something rather than finishing a course. About a year of freelance Python and Flask work for paying clients sits behind everything here — a restaurant point-of-sale system with live payment processing, a CRM built for an educational institution, and a handful of smaller tools built to solve one specific problem well.</p>
+      <p>I picked up Django, React, and TypeScript the same way — by building a full e-commerce platform from the data model up, because I wanted to understand exactly how a payment flow has to behave to be trustworthy, not just how to call an SDK.</p>
+    </div>
+    <div class="stack">
+      <span class="chip">Python</span>
+      <span class="chip">Flask</span>
+      <span class="chip">Django</span>
+      <span class="chip">Django REST Framework</span>
+      <span class="chip">React</span>
+      <span class="chip">TypeScript</span>
+      <span class="chip">PostgreSQL</span>
+      <span class="chip">SQLAlchemy</span>
+      <span class="chip">JWT Auth</span>
+      <span class="chip">Docker</span>
+      <span class="chip">Pytest</span>
+    </div>
+  </div>
+</section>
+
+<hr class="hr">
+
+<section id="work">
+  <div class="wrap">
+    <h2 class="section-title">Selected work</h2>
+    <p class="section-lead">Two projects worth actually clicking into — both public, both something I'd defend line by line.</p>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">Django E-Commerce Platform</div>
+        <a class="project-link" href="https://github.com/Suyyash-aroraa/django-ecom" target="_blank" rel="noopener">View repository →</a>
+      </div>
+      <div class="project-tags">Django REST Framework · React · TypeScript · PostgreSQL</div>
+      <div class="project-desc">
+        A decoupled e-commerce build from scratch — the backend and frontend don't know or care about each other's internals.
+        <ul>
+          <li>Variant-based product catalog with faceted search and filtering</li>
+          <li>A payment gateway built to behave exactly like a real one — signed webhooks, idempotent event handling, an explicit order-status state machine with a full audit trail, sitting behind a provider interface so a real gateway is a drop-in adapter</li>
+          <li>JWT auth with role-based access and a custom admin dashboard, not Django's default one</li>
+          <li>A pytest suite covering webhook verification, idempotency, stock-race conditions, and permission boundaries</li>
+        </ul>
+      </div>
+      <div class="honesty"><strong>Worth knowing:</strong> this runs locally and isn't deployed. The payment gateway is a self-built simulation designed to behave like Razorpay or Stripe — there are no live payment keys anywhere in it.</div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">HestiaPOS</div>
+        <a class="project-link" href="https://github.com/Suyyash-aroraa/hestia-pos" target="_blank" rel="noopener">View repository →</a>
+      </div>
+      <div class="project-tags">Flask · SQLAlchemy · PostgreSQL · Alpine.js</div>
+      <div class="project-desc">
+        A restaurant point-of-sale system built and delivered as paid freelance work, now public in a simplified form.
+        <ul>
+          <li>Order, inventory, and billing logic modeled properly in SQLAlchemy over PostgreSQL</li>
+          <li>Shipped to a real client, then maintained — including the bugs that only surface once real people are using it</li>
+        </ul>
+      </div>
+      <div class="honesty"><strong>Worth knowing:</strong> the client's version included live payment gateway integration for online orders. This public copy doesn't include that piece, since it was specific to the client's setup.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr">
+
+<section id="resume">
+  <div class="wrap">
+    <h2 class="section-title">Résumé</h2>
+    <p class="section-lead">The full picture — experience, projects, and education in one place.</p>
+
+    <div class="dossier">
+      <div class="dossier-head">
+        <div>
+          <div class="dossier-title">Suyyash Arora</div>
+          <div class="dossier-sub">Gwalior, Madhya Pradesh, India · suyyasha@gmail.com · +91 91744 55550</div>
         </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Hi, I'm Suyyash Raj Arora</h1>
-                <div class="typing-text"></div>
-                <p class="hero-description">Turning complex problems into elegant solutions</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="primary-btn">Get in Touch</a>
-                    <a href="#projects" class="secondary-btn">View Projects</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="./images/Professional_Headshot-removebg-preview.png" alt="Suyyash Raj Arora" class="profile-image">
-            </div>
+        <div class="dossier-actions">
+          <a class="btn btn-primary" href="resume.pdf" download>Download PDF</a>
         </div>
-    </section>
+      </div>
 
-    <section id="about" class="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I'm a 3rd-year B.Tech CSE student at VIT Bhopal, specializing in Cloud Computing. My passion lies in quantitative development and machine learning, where I strive to create innovative solutions that make a difference.</p>
-                <p>As an aspiring Quant Developer and Full Stack Web Developer, I combine technical expertise with creative problem-solving to build robust and efficient applications.</p>
-            </div>
-            <div class="about-image">
-                <img src="./images/Excited-removebg-preview.png" alt="About Me" class="about-profile-image">
-            </div>
+      <div class="rblock">
+        <div class="rlabel">Summary</div>
+        <p class="rsummary">Python developer with about a year of freelance experience building and delivering full-stack web applications for paying clients using Flask, SQLAlchemy, and PostgreSQL, including payment gateway integration. Also independently built a decoupled Django REST Framework + React/TypeScript e-commerce platform, with a self-built payment gateway simulation, role-based auth, a custom admin dashboard, and an automated test suite.</p>
+      </div>
+
+      <div class="rblock">
+        <div class="rlabel">Technical skills</div>
+        <div class="rskills">
+          <span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span>
+          <span class="chip">C / C++</span><span class="chip">Flask</span><span class="chip">Django</span>
+          <span class="chip">Django REST Framework</span><span class="chip">SQLAlchemy</span>
+          <span class="chip">REST API design</span><span class="chip">JWT auth</span><span class="chip">React</span>
+          <span class="chip">Alpine.js</span><span class="chip">Tailwind CSS</span><span class="chip">PostgreSQL</span>
+          <span class="chip">SQLite / MySQL</span><span class="chip">Git / GitHub</span><span class="chip">Docker</span>
+          <span class="chip">Pytest</span><span class="chip">Cloudflare</span>
         </div>
-    </section>
+      </div>
 
-    <section id="experience" class="experience">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-card">
-            <div class="experience-content">
-                <h3>Web & Software Developer</h3>
-                <h4>Kwality Restaurant Gwalior</h4>
-                <ul class="experience-details">
-                    <li>Developed and maintained kwality.co.in website</li>
-                    <li>Implemented WhatsApp integration for seamless customer communication</li>
-                    <li>Created ML-based waiting time prediction system</li>
-                </ul>
-            </div>
-             <div class="cta-buttons">
-                    <a href="https://kwality.co.in" class="secondary-btn">View Website</a>
-                </div>
-            <div class="experience-image">
-                <img src="./images/working-removebg-preview.png" alt="Working" class="work-illustration">
-            </div>
+      <div class="rblock">
+        <div class="rlabel">Experience</div>
+        <div class="rentry">
+          <div class="rentry-head">
+            <div class="rentry-title">Freelance Python Developer</div>
+            <div class="rentry-date">Sept 2025 — Present</div>
+          </div>
+          <div class="rentry-sub">Self-Employed · Remote</div>
+          <ul>
+            <li>Delivered paid full-stack web development projects for independent clients, earning over ₹1,50,000 across engagements, using Flask, SQLAlchemy, and PostgreSQL.</li>
+            <li><strong>Restaurant Point-of-Sale System (HestiaPOS):</strong> Built and deployed a full POS product for a restaurant client — REST APIs, database design, an Alpine.js frontend, and online order payment gateway integration — with ongoing post-launch support. A simplified public version (without the client's payment integration) is on <a href="https://github.com/Suyyash-aroraa/hestia-pos" target="_blank" rel="noopener">GitHub</a>.</li>
+            <li><strong>CRM-ERP System</strong> (educational institution client): Built a CRM/ERP web application managing student, staff, and administrative workflows on the same Flask/SQLAlchemy/PostgreSQL stack.</li>
+          </ul>
         </div>
-    </section>
+      </div>
 
-    <section id="skills" class="skills">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Programming</h3>
-                <div class="skill-bars">
-                    <h5>Python</h5>
-                    <div class="skill-bar" data-skill="Python" data-level="90"></div>
-                    <h5>C++</h5>
-                    <div class="skill-bar" data-skill="C++" data-level="85"></div>
-                    <h5>Java</h5>
-                    <div class="skill-bar" data-skill="Java" data-level="80"></div>
-                    <h5>JavaScript</h5>
-                    <div class="skill-bar" data-skill="JavaScript" data-level="85"></div>
-                    <h5>HTML & CSS</h5>
-                    <div class="skill-bar" data-skill="HTML5/CSS3" data-level="90"></div>
-                    <h5>React</h5>
-                    <div class="skill-bar" data-skill="React" data-level="85"></div>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Frameworks & Libraries</h3>
-                <div class="skill-bars">
-                    <h5>Flask</h5>
-                    <div class="skill-bar" data-skill="Flask" data-level="85"></div>
-                    <h5>pandas</h5>
-                    <div class="skill-bar" data-skill="pandas" data-level="90"></div>
-                    <h5>NumPy</h5>
-                    <div class="skill-bar" data-skill="NumPy" data-level="85"></div>
-                    <h5>scikit-learn</h5>
-                    <div class="skill-bar" data-skill="scikit-learn" data-level="80"></div>
-                    <h5>TensorFlow</h5>
-                    <div class="skill-bar" data-skill="TensorFlow" data-level="75"></div>
-                    <h5>PyTorch</h5>
-                    <div class="skill-bar" data-skill="PyTorch" data-level="75"></div>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Cloud & Database</h3>
-                <div class="skill-bars">
-                    <h5>AWS</h5>
-                    <div class="skill-bar" data-skill="AWS" data-level="80"></div>
-                    <h5>MySQL</h5>
-                    <div class="skill-bar" data-skill="MySQL" data-level="85"></div>
-                </div>
-            </div>
+      <div class="rblock">
+        <div class="rlabel">Projects</div>
+        <div class="rentry">
+          <div class="rentry-head">
+            <div class="rentry-title">Django E-Commerce Platform</div>
+          </div>
+          <div class="rentry-sub">Django · DRF · React + TypeScript · PostgreSQL</div>
+          <ul>
+            <li>Built a decoupled e-commerce platform with a variant-based product catalog, faceted search, cart, and checkout.</li>
+            <li>Designed a self-built payment gateway simulation shaped like a real PSP — HMAC-signed webhooks, idempotent event handling, and an order status state machine with audit trail — behind a provider interface so a real gateway is a drop-in adapter.</li>
+            <li>Implemented JWT auth with role-based access and a custom admin dashboard; covered with a pytest suite. Runs locally — public repo on <a href="https://github.com/Suyyash-aroraa/django-ecom" target="_blank" rel="noopener">GitHub</a>.</li>
+          </ul>
         </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>HealthBot AI</h3>
-                <p>An ML & NLP-powered health assistant that provides personalized health recommendations and medical information.</p>
-                <div class="project-tech">
-                    <span>Python</span>
-                    <span>NLP</span>
-                    <span>TensorFlow</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>Quantitative Trading Agent</h3>
-                <p>In-progress development of an AI-driven trading agent using reinforcement learning for market analysis.</p>
-                <div class="project-tech">
-                    <span>Python</span>
-                    <span>ML</span>
-                    <span>pandas</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>AutoMail Service</h3>
-                <p>A Flask-based email service running on AWS EC2, handling contact form submissions with automated responses and admin notifications. Currently powering this portfolio's contact form.</p>
-                <div class="project-tech">
-                    <span>Python</span>
-                    <span>Flask</span>
-                    <span>AWS EC2</span>
-                    <span>SMTP</span>
-                </div>
-                <a href="#contact" class="secondary-btn project-btn">Test it Live</a>
-            </div>
-            <div class="project-card">
-                <h3>Portfolio Analysis Tool</h3>
-                <p>A comprehensive Python-based stock portfolio tracking and analysis system with real-time data from Yahoo Finance. Features include CAGR calculation, volatility analysis, risk metrics (VaR), and dividend tracking.</p>
-                <div class="project-tech">
-                    <span>Python</span>
-                    <span>NumPy</span>
-                    <span>Yahoo Finance API</span>
-                    <span>Financial Analysis</span>
-                </div>
-                <a href="https://github.com/Suyyash-aroraa/PortfolioAnalysisUsingPython" target="_blank" class="secondary-btn project-btn">View on GitHub</a>
-            </div>
+        <div class="rentry">
+          <div class="rentry-head">
+            <div class="rentry-title">Inventory Management System</div>
+          </div>
+          <div class="rentry-sub">Flask · SQLAlchemy · PostgreSQL · Alpine.js</div>
+          <ul>
+            <li>Built a CRUD web app to track stock levels, incoming/outgoing inventory, and low-stock alerts.</li>
+          </ul>
         </div>
-    </section>
+      </div>
 
-    <section id="education" class="education">
-        <h2 class="section-title">Education & Certifications</h2>
-        <div class="education-content">
-            <div class="education-card">
-                <h3>B.Tech Computer Science Engineering</h3>
-                <h4>VIT Bhopal</h4>
-                <p>Specialization in Cloud Computing</p>
-                <p>Expected 2027</p>
-            </div>
-            <div class="certifications">
-                <h3>Certifications</h3>
-                <ul>
-                    <li>Machine Learning (DeepLearning.AI)</li>
-                    <li>Python Essentials</li>
-                    <li>Frontend Development (Meta)</li>
-                    <li>Cloud Computing (IBM)</li>
-                    <li>MUN Participation Certificate</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+      <div class="rblock">
+        <div class="rlabel">Education</div>
+        <div class="redu-school">VIT Bhopal University</div>
+        <div class="redu-detail">B.Tech, Computer Science and Engineering (Cloud Computing and Automation)</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="interests" class="interests">
-        <h2 class="section-title">Personal Interests</h2>
-        <div class="interests-grid">
-            <div class="interest-card">
-                <i class="fas fa-book"></i>
-                <h3>Reading Novels</h3>
-            </div>
-            <div class="interest-card">
-                <i class="fas fa-microphone"></i>
-                <h3>Public Speaking</h3>
-            </div>
-            <div class="interest-card">
-                <i class="fas fa-running"></i>
-                <h3>Morning Jogs</h3>
-            </div>
-            <div class="interest-card">
-                <i class="fas fa-globe"></i>
-                <h3>Model UN</h3>
-            </div>
-        </div>
-    </section>
+<hr class="hr">
 
-    <section id="contact" class="contact">
-        <h2 class="section-title">Get in Touch</h2>
-        <p class="test-automail">Test AutoMail in action! Fill out the form below to see how it handles form submissions with automated responses.</p>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/suyyash-arora" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://instagram.com/suyyash_arora" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:suyyash@myyahoo.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </div>
-    </section>
+<section id="contact">
+  <div class="wrap">
+    <h2 class="section-title">Get in touch</h2>
+    <div class="contact-row">
+      <div class="contact-item">
+        <div class="label">Email</div>
+        <a class="value" href="mailto:suyyasha@gmail.com">suyyasha@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="label">GitHub</div>
+        <a class="value" href="https://github.com/Suyyash-aroraa" target="_blank" rel="noopener">Suyyash-aroraa</a>
+      </div>
+      <div class="contact-item">
+        <div class="label">Phone</div>
+        <div class="value">+91 91744 55550</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer class="footer">
-        <p>&copy; 2024 Suyyash Raj Arora. All rights reserved.</p>
-    </footer>
+<footer>
+  <div class="wrap">
+    Suyyash Arora — built by hand, not from a template.
+  </div>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="./script.js"></script>
 </body>
 </html>
